@@ -5,3 +5,4 @@ webrtcvad
 matplotlib
 datasets
 transformers
+setuptools==81.0.0

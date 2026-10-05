@@ -15,12 +15,12 @@ COPY requirements.txt .
 
 RUN python3 -m venv ce_server
 
-RUN . ce_server/bin/activate
+RUN . server_env/bin/activate
 
-RUN ce_server/bin/pip3 install --no-cache-dir -r requirements.txt && \
+RUN server_env/bin/pip3 install --no-cache-dir -r requirements.txt && \
   rm -rf /var/lib/apt/lists/*
 
-COPY cajun_english_website server
+COPY lang_script_main server
 
 WORKDIR /src/server
 
