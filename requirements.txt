@@ -1,0 +1,7 @@
+openai-whisper
+Flask
+pydub==0.25.1
+webrtcvad
+matplotlib
+datasets
+transformers
