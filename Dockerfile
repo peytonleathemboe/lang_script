@@ -1,3 +1,4 @@
+#Start from the NVIDIA docker image to enable GPU use
 FROM nvidia/cuda:13.4.2-runtime-ubuntu24.04
 
 WORKDIR /src

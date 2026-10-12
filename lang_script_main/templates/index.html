@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangScript - A Deceptively Simple Transcription Tool</title>
+    <meta name="description" content="Supporting transcriptionists through modern methods">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">LangScript</div>
+        <div style="display:none;" class="nav-links" id="audio_options">
+	  <p id='filename'></p>
+          <audio id="audioPlayer" controls style="width: 100%; margin-top: 1rem;"></audio>
+	  <div style="display:flex;">
+	    <label for="pbrate">Speed</label>
+	    <input type="range" id="pbrate" min=.25 max=2 value=1 step=.1>
+	    <span id="audio_pb_display"></span>
+	    <p id="save_message"></p>
+	    <button id = 'export-button' class = 'bottom-button' style="margin-left:auto;">Export</button>
+	  </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Step 1 Section: File Selection -->
+        <section class="section">
+            <h2 class="section-title">Step 1: Choose your source</h2>
+            <div class="upload-area">
+                <!-- Custom visible button to trigger the hidden file input -->
+                <button id="uploadBtn" class="btn-upload">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                    </svg>
+                    Upload Audio
+                </button>
+            </div>
+
+            <!-- HIDDEN FILE INPUT -->
+            <input type="file" id="fileInput" hidden accept="audio/*,video/*">
+
+            
+            <div id="uploadStatus" style="margin-top: 1rem; font-size: 0.9rem; font-weight: 600;"></div>
+        </section>
+
+	<section class="section">
+          <h2 class="section-title">Step 1: Choose your source</h2>
+          <select id="audio_selection">
+	      <option value=""></option>
+              <option value="Test1">Test1</option>
+              <option value="Test2">Test2</option>
+              <option value="Test3">Test3</option>
+              <option value="Test4">Test4</option>
+              <option value="Test5">Test5</option>
+              <option value="Test6">Test6</option>
+            </select>
+        </section>
+
+        <!-- Text Editor -->
+        <section id='transcript_section' style='display:none;' class="section editor-area transcript-container">
+            <h2 class="section-title">Step 2: Transcribe</h2>
+        </section>
+	<section class='bottom-buttons' style="display:none;">
+	  <button id = 'finalize-button' class = 'bottom-button' style="float:right;">Finalize</button>
+	</section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>
